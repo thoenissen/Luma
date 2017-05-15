@@ -1,0 +1,77 @@
+﻿<UserControl x:Class="Seth.Luma.Configuration.View.ReferenceManagerConfigurationView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="3*"/>
+            <RowDefinition Height="10"/>
+            <RowDefinition Height="1*"/>
+        </Grid.RowDefinitions>
+
+        <DataGrid Grid.Row="0"
+                  ItemsSource="{Binding Path=AssemblyLocations}"
+                  IsReadOnly="False"
+                  CanUserAddRows="False"
+                  CanUserDeleteRows="True"
+                  AutoGenerateColumns="True"
+                  BorderBrush="LightGray"
+                  HorizontalGridLinesBrush="LightGray"
+                  VerticalGridLinesBrush="LightGray"/>
+
+        <Grid Grid.Row="2">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="10"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="10"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="10"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="10"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+            
+            <!-- Description-->
+            <TextBlock Grid.Row="0"
+                       Grid.Column="0"
+                       Text="Description:"/>
+            
+            <TextBox Grid.Row="0" 
+                     Grid.Column="2"
+                     Text="{Binding Path=Description, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True}"/>
+
+            <!-- Path -->
+            <TextBlock Grid.Row="2"
+                       Grid.Column="0"
+                       Text="Path:"/>
+
+            <TextBox Grid.Row="2"
+                     Grid.Column="2"
+                     Text="{Binding Path=Path, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True}"/>
+            
+            <!-- Preview -->
+            <TextBlock Grid.Row="4"
+                       Grid.Column="0"
+                       Text="Preview:"/>
+
+            <TextBox Grid.Row="4"
+                     Grid.Column="2"
+                     Text="{Binding Path=Preview, UpdateSourceTrigger=PropertyChanged}"/>
+
+            <!-- Buttons -->
+            <StackPanel Grid.Row="6"
+                        Grid.Column="0"
+                        Grid.ColumnSpan="3"
+                        Orientation="Horizontal"
+                        HorizontalAlignment="Right">
+                <Button MinWidth="150"
+                        Command="{Binding Path=CmdAdd}"
+                        Content="Add"/>
+            </StackPanel>
+        </Grid>
+    </Grid>
+</UserControl>

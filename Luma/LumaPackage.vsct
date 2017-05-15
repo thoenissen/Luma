@@ -1,0 +1,51 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<CommandTable xmlns="http://schemas.microsoft.com/VisualStudio/2005-10-18/CommandTable" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <!--This is the file that defines the IDs for all the commands exposed by VisualStudio. -->
+  <Extern href="stdidcmd.h" />
+
+  <!--This header contains the command ids for the menus provided by the shell. -->
+  <Extern href="vsshlids.h" />
+  
+  <Commands package="PackageGuid">
+    <Menus>
+      <!-- Luma top level main menu -->
+      <Menu guid="PackageGuidCmdSet" id="MainMenu" priority="0x700" type="Menu">
+        <Parent guid="guidSHLMainMenu" id="IDG_VS_MM_TOOLSADDINS" />
+        <Strings>
+          <ButtonText>Luma</ButtonText>
+        </Strings>
+      </Menu>
+    </Menus>
+    
+    <Groups>
+      <!-- Top level menu entries -->
+      <Group guid="PackageGuidCmdSet" id="MainMenuGroup" priority="0x0600">
+        <Parent guid="PackageGuidCmdSet" id="MainMenu" />
+      </Group>
+    </Groups>
+
+    <Buttons>
+      <!-- Reference Manager -->
+      <Button guid="PackageGuidCmdSet" id="ReferenceManagerCmdId" priority="0x0100" type="Button">
+        <Parent guid="PackageGuidCmdSet" id="MainMenuGroup" />
+        <CommandFlag>DynamicVisibility</CommandFlag>
+        <CommandFlag>DefaultInvisible</CommandFlag>
+        <Strings>
+          <ButtonText>Reference Manager</ButtonText>
+        </Strings>
+      </Button>
+    </Buttons>
+  </Commands>
+
+  <Symbols>
+    <!-- This is the package guid. -->
+    <GuidSymbol name="PackageGuid" value="{0ea1c363-649f-47e4-b230-bccc3fd7e9dc}" />
+
+    <!-- This is the guid used to group the menu commands together -->
+    <GuidSymbol name="PackageGuidCmdSet" value="{cd5ee33f-aef0-40c8-9d57-11836941728b}">
+      <IDSymbol name="MainMenuGroup" value="0x1020" />
+      <IDSymbol name="MainMenu" value="0x1021" />
+      <IDSymbol name="ReferenceManagerCmdId" value="4130"/>
+    </GuidSymbol>
+  </Symbols>
+</CommandTable>
