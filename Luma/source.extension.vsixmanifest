@@ -4,6 +4,7 @@
     <Identity Id="Seth.Luma.b1c6e846-fb94-4997-b11e-38f829089c15" Version="1.0.0.0" Language="en-US" Publisher="Sebastian Thönissen" />
     <DisplayName>Luma</DisplayName>
     <Description xml:space="preserve">Your little helper Luma.</Description>
+    <MoreInfo>https://github.com/thoenissen/Luma</MoreInfo>
     <License>LICENSE.txt</License>
   </Metadata>
   <Installation>
