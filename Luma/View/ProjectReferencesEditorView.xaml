@@ -33,7 +33,8 @@
                       ItemsSource="{Binding Path=Projects}"
                       SelectedItem="{Binding Path=SelectedProject}"
                       Background="Transparent"
-                      AutoGenerateColumns="False">
+                      AutoGenerateColumns="False"
+                      IsReadOnly="True">
                 <DataGrid.Columns>
                     <DataGridTextColumn Header="Name" 
                                         Binding="{Binding Path=Name, Mode=OneWay}"/>
@@ -42,6 +43,16 @@
 
             <DataGrid Grid.Column="2"
                       ItemsSource="{Binding Path=SelectedProject.References}"
-                      AutoGenerateColumns="True" />
-        </Grid></Grid>
+                      IsReadOnly="False"
+                      AutoGenerateColumns="False"
+                      CanUserAddRows="False"
+                      CanUserDeleteRows="False">
+                <DataGrid.Columns>
+                    <DataGridTextColumn Header="Name" Binding="{Binding Path=Name}" IsReadOnly="True"/>
+                    <DataGridTextColumn Header="Reference Path" Binding="{Binding Path=ReferencePath}" IsReadOnly="True"/>
+                    <DataGridTextColumn Header="New Reference Path" Binding="{Binding Path=NewReferencePath}" IsReadOnly="False"/>
+                </DataGrid.Columns>
+            </DataGrid>
+        </Grid>
+    </Grid>
 </UserControl>
