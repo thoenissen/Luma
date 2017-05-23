@@ -72,8 +72,11 @@ namespace Seth.Luma.Core.Window
                 {
                     Source = new Uri("pack://application:,,,/MahApps.Metro;component/Styles/VS/Styles.xaml")
                 });
-
-
+                resourceDictionary.MergedDictionaries.Add(new ResourceDictionary
+                {
+                    Source = new Uri("pack://application:,,,/MahApps.Metro;component/Styles/FlatButton.xaml")
+                });
+                
                 if (VSColorTheme.GetThemedColor(EnvironmentColors.ToolWindowBackgroundColorKey).GetBrightness() <= 0.2)
                 {
                     resourceDictionary.MergedDictionaries.Add(new ResourceDictionary
