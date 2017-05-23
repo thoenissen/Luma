@@ -70,9 +70,28 @@ namespace Seth.Luma.ViewModel
                 {
                     _solutionPath = Path.GetDirectoryName(dte.Solution.FullName);
                     
+                    void ReadProject(Project project)
+                    {
+                        // Solution Folder
+                        if (project.Kind == "{66A26720-8FB5-11D2-AA7E-00C04F688DDE}")
+                        {
+                            foreach (var projectItem in project.ProjectItems.OfType<ProjectItem>())
+                            {
+                                if (projectItem.Object is Project innerProject)
+                                {
+                                    ReadProject(innerProject);
+                                }
+                            }
+                        }
+                        else
+                        {
+                            ReadProjectReferences(project);
+                        }
+                    }
+            
                     foreach (var project in dte.Solution.Projects.OfType<Project>())
                     {
-                         ReadProjectReferences(project);
+                        ReadProject(project);
                     }
                 }
             }
