@@ -50,9 +50,14 @@ namespace Seth.Luma.ViewData
                 {
                     var hintPath = item.GetMetadata("HintPath").UnevaluatedValue;
 
+                    while (hintPath.StartsWith("..\\"))
+                    {
+                        hintPath = hintPath.Remove(0, 3);
+                    }
+
                     // Filter NuGet references
                     if (hintPath.StartsWith(Path.Combine(solutionPath, "packages")) == false
-                     && hintPath.StartsWith("..\\packages") == false)
+                     && hintPath.StartsWith("packages") == false)
                     {
                         Application.Current.Dispatcher.Invoke(() => References.Add(new ReferenceViewData(item)));
                     }
