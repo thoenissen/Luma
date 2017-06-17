@@ -4,7 +4,7 @@ using Microsoft.Build.Evaluation;
 using Seth.Luma.Core.Helper;
 using Seth.Luma.Core.ViewData;
 
-namespace Seth.Luma.ViewData
+namespace Seth.Luma.ViewData.ReferenceManager
 {
     /// <summary>
     /// Information of a reference of a C#/VB project

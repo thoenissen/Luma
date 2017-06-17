@@ -74,7 +74,11 @@
     <Compile Include="Core\ViewModel\Interfaces\IDialogWindowViewModel.cs" />
     <Compile Include="Core\View\ViewResolver.cs" />
     <Compile Include="Core\Window\ViewPresenterWindow.cs" />
-    <Compile Include="ViewData\ReferenceViewData.cs" />
+    <Compile Include="Helper\SolutionHelper.cs" />
+    <Compile Include="LumaPackageIds.cs" />
+    <Compile Include="ViewData\ProjectViewData.cs" />
+    <Compile Include="ViewData\PropertyMerger\PropertyProjectViewData.cs" />
+    <Compile Include="ViewData\ReferenceManager\ReferenceViewData.cs" />
     <Compile Include="Core\ViewData\ViewDataBase.cs" />
     <Compile Include="Core\ViewModel\ViewModelBase.cs" />
     <Compile Include="LumaResources.Designer.cs">
@@ -85,11 +89,15 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="LumaPackage.cs" />
     <Compile Include="MenuCommands\LumaTopLevelMenu.cs" />
-    <Compile Include="ViewData\ProjectViewData.cs" />
+    <Compile Include="ViewData\ReferenceManager\ReferenceProjectViewData.cs" />
+    <Compile Include="ViewModel\PropertyMergerViewModel.cs" />
     <Compile Include="View\ProjectReferencesEditorView.xaml.cs">
       <DependentUpon>ProjectReferencesEditorView.xaml</DependentUpon>
     </Compile>
     <Compile Include="ViewModel\ProjectReferencesEditorViewModel.cs" />
+    <Compile Include="View\PropertyMergerView.xaml.cs">
+      <DependentUpon>PropertyMergerView.xaml</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />
@@ -246,6 +254,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="View\ProjectReferencesEditorView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\PropertyMergerView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

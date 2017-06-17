@@ -21,9 +21,14 @@ namespace Seth.Luma.MenuCommands
         private readonly Package _package;
 
         /// <summary>
-        /// Reference manger command
+        /// Reference Manager Command
         /// </summary>
         private static MenuCommand _referenceManagerCommand;
+
+        /// <summary>
+        /// Property Merger
+        /// </summary>
+        private MenuCommand _propertyMerger;
 
         #endregion // Fields
 
@@ -41,12 +46,16 @@ namespace Seth.Luma.MenuCommands
             {
                 var solutionLoaded = ((LumaPackage.Current as IServiceProvider)?.GetService(typeof(DTE)) as DTE) ?.Solution != null;
                 
-                _referenceManagerCommand = new MenuCommand(ShowToolWindow, new CommandID(new Guid("cd5ee33f-aef0-40c8-9d57-11836941728b"), 4130))
+                _referenceManagerCommand = new MenuCommand(ShowReferenceManager, new CommandID(LumaPackageIdentifiers.PackageGuidCmdSet, LumaPackageIdentifiers.ReferenceManagerCmdId))
                 {
                     Visible = solutionLoaded
                 };
 
                 commandService.AddCommand(_referenceManagerCommand);
+
+                _propertyMerger = new MenuCommand(ShowPropertyMerger, new CommandID(LumaPackageIdentifiers.PackageGuidCmdSet, LumaPackageIdentifiers.PropertyMergerCmdId));
+                
+                commandService.AddCommand(_propertyMerger);
             }
 
             PackageController.Current.AfterOpenSolution += OnAfterOpenSolution;
@@ -85,11 +94,11 @@ namespace Seth.Luma.MenuCommands
         }
 
         /// <summary>
-        /// Shows the tool window when the menu item is clicked.
+        /// Open the Reference Manager
         /// </summary>
         /// <param name="sender">The event sender.</param>
         /// <param name="e">The event args.</param>
-        private static void ShowToolWindow(object sender, EventArgs e)
+        private static void ShowReferenceManager(object sender, EventArgs e)
         {
             if (_referenceManagerCommand.Visible && _referenceManagerCommand.Enabled)
             {
@@ -100,6 +109,22 @@ namespace Seth.Luma.MenuCommands
             }
         }
 
+        /// <summary>
+        /// Open the Property Merger
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void ShowPropertyMerger(object sender, EventArgs e)
+        {
+            if (_referenceManagerCommand.Visible && _referenceManagerCommand.Enabled)
+            {
+                using (var viewModel = new PropertyMergerViewModel())
+                {
+                    new ViewPresenterWindow(viewModel).ShowDialog();
+                }
+            }
+        }
+        
         /// <summary>
         /// The solution is about to be closed
         /// </summary>

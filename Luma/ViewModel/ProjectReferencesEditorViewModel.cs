@@ -12,6 +12,7 @@ using Seth.Luma.Core.Helper;
 using Seth.Luma.Core.ViewModel;
 using Seth.Luma.Core.ViewModel.Interfaces;
 using Seth.Luma.ViewData;
+using Seth.Luma.ViewData.ReferenceManager;
 using VSLangProj140;
 
 namespace Seth.Luma.ViewModel
@@ -26,7 +27,7 @@ namespace Seth.Luma.ViewModel
         /// <summary>
         /// Projects
         /// </summary>
-        private ObservableCollection<ProjectViewData> _projects;
+        private ObservableCollection<ReferenceProjectViewData> _projects;
 
         /// <summary>
         /// Selected project
@@ -62,7 +63,7 @@ namespace Seth.Luma.ViewModel
         /// </summary>
         public ProjectReferencesEditorViewModel()
         {
-            _projects = new ObservableCollection<ProjectViewData>();
+            _projects = new ObservableCollection<ReferenceProjectViewData>();
             
             if ((LumaPackage.Current as IServiceProvider)?.GetService(typeof(DTE)) is DTE dte)
             {
@@ -160,7 +161,7 @@ namespace Seth.Luma.ViewModel
         /// <summary>
         /// Projects
         /// </summary>
-        public ObservableCollection<ProjectViewData> Projects
+        public ObservableCollection<ReferenceProjectViewData> Projects
         {
             get => _projects;
             set
@@ -201,7 +202,7 @@ namespace Seth.Luma.ViewModel
 
                 if (projectViewData == null)
                 {
-                    projectViewData = new ProjectViewData(project, _solutionPath);
+                    projectViewData = new ReferenceProjectViewData(project, _solutionPath);
 
                     Application.Current.Dispatcher.Invoke(() => _projects.Add(projectViewData));
                 }

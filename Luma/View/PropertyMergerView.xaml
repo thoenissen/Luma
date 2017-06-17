@@ -1,0 +1,86 @@
+﻿<UserControl x:Class="Seth.Luma.View.PropertyMergerView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    <Grid Margin="10">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto" />
+            <ColumnDefinition Width="5" />
+            <ColumnDefinition Width="Auto" MinWidth="150" />
+            <ColumnDefinition Width="5" />
+            <ColumnDefinition Width="Auto" />
+            <ColumnDefinition Width="5" />
+            <ColumnDefinition Width="Auto" MinWidth="150" />
+            <ColumnDefinition Width="5" />
+            <ColumnDefinition Width="Auto" MinWidth="150" />
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="10" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="10" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+
+        <!-- Configuration -->
+        <TextBlock Grid.Row="0"
+                   Grid.Column="0"
+                   Text="Configuration"
+                   VerticalAlignment="Center" />
+        <ComboBox Grid.Row="0"
+                  Grid.Column="2"
+                  ItemsSource="{Binding Path=Configurations}"
+                  SelectedItem="{Binding Path=SelectedConfiguration}" />
+
+        <!-- Platform -->
+        <TextBlock Grid.Row="0"
+                   Grid.Column="4"
+                   Text="Platform"
+                   VerticalAlignment="Center" />
+        <ComboBox Grid.Row="0"
+                  Grid.Column="6"
+                  ItemsSource="{Binding Path=PlatformNames}"
+                  SelectedItem="{Binding Path=SelectedPlatformName}" />
+
+        <!-- Property -->
+        <TextBlock Grid.Row="2"
+                   Grid.Column="0"
+                   Text="Property"
+                   VerticalAlignment="Center" />
+        <ComboBox Grid.Row="2"
+                  Grid.Column="2"
+                  ItemsSource="{Binding Path=Properties}"
+                  SelectedItem="{Binding Path=SelectedProperty}" />
+
+        <!-- New Value -->
+        <TextBlock Grid.Row="2"
+                   Grid.Column="4"
+                   Text="New value"
+                   VerticalAlignment="Center" />
+        <ComboBox Grid.Row="2"
+                  Grid.Column="6"
+                  ItemsSource="{Binding Path=NewValues}"
+                  SelectedItem="{Binding Path=SelectedNewValue}" />
+
+        <!-- Merge -->
+        <Button Grid.Row="2"
+                Grid.Column="8"
+                Content="Merge"
+                Command="{Binding Path=CmdMerge}"/>
+
+        <DataGrid Grid.Row="4"
+                  Grid.Column="0"
+                  Grid.ColumnSpan="10"
+                  ItemsSource="{Binding Path=Projects}"
+                  AutoGenerateColumns="False">
+            <DataGrid.Columns>
+                <DataGridCheckBoxColumn Binding="{Binding Path=IsSelected}" />
+                <DataGridTextColumn Binding="{Binding Path=Name}"
+                                    Header="Project" />
+                <DataGridTextColumn Binding="{Binding Path=CurrentValue}"
+                                    Header="Current Value" />
+            </DataGrid.Columns>
+        </DataGrid>
+
+    </Grid>
+</UserControl>

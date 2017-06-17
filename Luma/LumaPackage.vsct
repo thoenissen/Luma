@@ -34,6 +34,16 @@
           <ButtonText>Reference Manager</ButtonText>
         </Strings>
       </Button>
+      
+      <!-- Property Merger -->
+      <Button guid="PackageGuidCmdSet" id="PropertyMergerCmdId" priority="0x0200" type="Button">
+        <Parent guid="PackageGuidCmdSet" id="MainMenuGroup" />
+        <CommandFlag>DynamicVisibility</CommandFlag>
+        <CommandFlag>DefaultInvisible</CommandFlag>
+        <Strings>
+          <ButtonText>Property Merger</ButtonText>
+        </Strings>
+      </Button>
     </Buttons>
   </Commands>
 
@@ -43,9 +53,12 @@
 
     <!-- This is the guid used to group the menu commands together -->
     <GuidSymbol name="PackageGuidCmdSet" value="{cd5ee33f-aef0-40c8-9d57-11836941728b}">
-      <IDSymbol name="MainMenuGroup" value="0x1020" />
-      <IDSymbol name="MainMenu" value="0x1021" />
-      <IDSymbol name="ReferenceManagerCmdId" value="4130"/>
+
+      <!-- Command of the Luma Top-Level Menu -->
+      <IDSymbol name="MainMenuGroup" value="0x1001" />
+      <IDSymbol name="MainMenu" value="0x1010" />
+      <IDSymbol name="ReferenceManagerCmdId" value="0x1100"/>
+      <IDSymbol name="PropertyMergerCmdId" value="0x1200"/>
     </GuidSymbol>
   </Symbols>
 </CommandTable>
