@@ -5,11 +5,11 @@
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="Auto" />
             <ColumnDefinition Width="5" />
-            <ColumnDefinition Width="Auto" MinWidth="150" />
+            <ColumnDefinition Width="Auto" MinWidth="250" />
             <ColumnDefinition Width="5" />
             <ColumnDefinition Width="Auto" />
             <ColumnDefinition Width="5" />
-            <ColumnDefinition Width="Auto" MinWidth="150" />
+            <ColumnDefinition Width="Auto" MinWidth="250" />
             <ColumnDefinition Width="5" />
             <ColumnDefinition Width="Auto" MinWidth="150" />
             <ColumnDefinition Width="*" />
