@@ -78,6 +78,7 @@
     <Compile Include="LumaPackageIds.cs" />
     <Compile Include="ViewData\ProjectViewData.cs" />
     <Compile Include="ViewData\PropertyMerger\PropertyProjectViewData.cs" />
+    <Compile Include="ViewData\PropertyMerger\PropertyViewData.cs" />
     <Compile Include="ViewData\ReferenceManager\ReferenceViewData.cs" />
     <Compile Include="Core\ViewData\ViewDataBase.cs" />
     <Compile Include="Core\ViewModel\ViewModelBase.cs" />

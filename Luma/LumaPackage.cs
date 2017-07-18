@@ -10,7 +10,7 @@ namespace Seth.Luma
     /// Luma package
     /// </summary>
     [PackageRegistration(UseManagedResourcesOnly = true)]
-    [InstalledProductRegistration("Luma", "Your little helper Luma.", "1.0.0.0", IconResourceID = 400)]
+    [InstalledProductRegistration("Luma", "Your little helper Luma.", "1.0.0.2", IconResourceID = 400)]
     [ProvideMenuResource("Menus.ctmenu", 1)]
     [Guid("0ea1c363-649f-47e4-b230-bccc3fd7e9dc")]
     [ProvideOptionPage(typeof(ReferenceManagerConfiguration), "Luma", "Reference manager", 0, 0, true)]
