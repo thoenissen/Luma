@@ -9,6 +9,7 @@ using Seth.Luma.Core.ViewModel;
 using Seth.Luma.Helper;
 using Seth.Luma.ViewData.PropertyMerger;
 using VSLangProj;
+using VSLangProj140;
 
 namespace Seth.Luma.ViewModel
 {
@@ -187,7 +188,7 @@ namespace Seth.Luma.ViewModel
             {
                 if (dte.Solution != null)
                 {
-                    foreach (var project in SolutionHelper.GetAllProjects(dte.Solution).Where(obj => obj.Object is VSProject))
+                    foreach (var project in SolutionHelper.GetAllProjects(dte.Solution).Where(obj => obj.Object is VSProject3))
                     {
                         foreach (var platformName in (Object[])project.ConfigurationManager.PlatformNames)
                         {
